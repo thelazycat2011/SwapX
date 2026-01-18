@@ -1,0 +1,21 @@
+{
+	"geode": "4.10.0",
+	"gd": {
+		"win": "2.2074"
+	},
+	"id": "thelazycat2011.swapx",
+	"name": "SwapX",
+	"version": "v1.0.0",
+	"developer": "thelazycat2011",
+	"description": "Swapping level while nobody notice",
+	"dependencies": {
+		"geode.node-ids": ">=v1.20.0",
+		"geode.custom-keybinds": ">=v1.10.2",
+		"hjfod.gmd-api": ">=1.4.0"
+	},
+	"resources": {
+		"files": [
+			"resources/*.ttf"
+		]
+	}
+}
