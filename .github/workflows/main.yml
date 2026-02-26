@@ -7,10 +7,15 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
-    - uses: geode-sdk/build-geode-mod@main
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Build
+      uses: geode-sdk/build-geode-mod@main
       id: build
 
-    - uses: actions/upload-artifact@v3
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
       with:
-        name: SwapX action
+        name: SwapX
         path: ${{ steps.build.outputs.build-output }}
