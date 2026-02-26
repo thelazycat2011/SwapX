@@ -1,7 +1,7 @@
 {
-	"geode": "4.10.0",
+	"geode": "5.0.1",
 	"gd": {
-		"win": "2.2074"
+		"win": "2.2081"
 	},
 	"id": "thelazycat2011.swapx",
 	"name": "SwapX",
@@ -9,13 +9,25 @@
 	"developer": "thelazycat2011",
 	"description": "Swapping level while nobody notice",
 	"dependencies": {
-		"geode.node-ids": ">=v1.20.0",
-		"geode.custom-keybinds": ">=v1.10.2",
-		"hjfod.gmd-api": ">=1.4.0"
+		"hjfod.gmd-api": ">=1.5.0"
 	},
 	"resources": {
 		"files": [
 			"resources/*.ttf"
 		]
+	},
+	"settings": {
+		"toggle-menu": {
+			"type": "keybind",
+			"name": "SwapX menu Keybind",
+			"default": "Ctrl+L",
+			"migrate-from": "thelazycat2011.swapx/imgui-menu"
+		},
+		"swap-toggle": {
+			"type": "keybind",
+			"name": "Swap keybind",
+			"default": "N",
+			"migrate-from": "thelazycat2011.swapx/swap-toggle"
+		}
 	}
 }

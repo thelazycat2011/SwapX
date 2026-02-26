@@ -1,5 +1,4 @@
 #include <imgui-cocos.hpp>
-#include <geode.custom-keybinds/include/Keybinds.hpp>
 #include <Geode/Geode.hpp>
 #include "global.hpp"
 using namespace geode::prelude;
@@ -54,29 +53,11 @@ $on_mod(Loaded) {
 }
 
 $execute {
-    using namespace keybinds;
-
-    BindManager::get()->registerBindable({
-        "open-imgui"_spr, /* Keybind ID */
-        "Open Interface", /* Keybind name */
-        "Open or close the SwapX interface.", /* Keybind description */
-        { Keybind::create(cocos2d::enumKeyCodes::KEY_L, Modifier::Control) },
-                                         "SwapX" /* Category name (usually the name of your mod) */
-    });
-    new EventListener([=](InvokeBindEvent* event) {
-        if (event->isDown()) ImGuiCocos::get().toggle();
-        return ListenerResult::Propagate;
-    }, InvokeBindFilter(nullptr, "open-imgui"_spr));
-    BindManager::get()->registerBindable({
-        "swap-toggle"_spr, /* Keybind ID */
-        "Toggle Swap", /* Keybind name */
-        "Toggle the swapping mechanism", /* Keybind description */
-        { Keybind::create(cocos2d::enumKeyCodes::KEY_N) },
-                                         "SwapX" /* Category name (usually the name of your mod) */
-    });
-    new EventListener([=](InvokeBindEvent* event) {
+    listenForKeybindSettingPresses("swap-toggle", [](Keybind const& keybind, bool down, bool repeat, double timestamp) {
         Globals& g = Globals::instance();
-        if (event->isDown()) g.swap_toggle();
-        return ListenerResult::Propagate;
-    }, InvokeBindFilter(nullptr, "swap-toggle"_spr));
+        if (down && !repeat) g.swap_toggle();
+    });
+    listenForKeybindSettingPresses("toggle-menu", [](Keybind const& keybind, bool down, bool repeat, double timestamp) {
+        if (down && !repeat) ImGuiCocos::get().toggle();
+    });
 }
