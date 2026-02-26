@@ -1,0 +1,16 @@
+name: Build Binaries
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    - uses: geode-sdk/build-geode-mod@main
+      id: build
+      with:
+        target: 'Win64'
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: My mod
+        path: ${{ steps.build.outputs.build-output }}
