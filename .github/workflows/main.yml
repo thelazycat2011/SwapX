@@ -5,12 +5,12 @@ on:
 
 jobs:
   build:
+    runs-on: windows-latest
+    steps:
     - uses: geode-sdk/build-geode-mod@main
       id: build
-      with:
-        target: 'Win64'
 
     - uses: actions/upload-artifact@v3
       with:
-        name: My mod
+        name: SwapX action
         path: ${{ steps.build.outputs.build-output }}
