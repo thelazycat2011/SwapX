@@ -5,7 +5,7 @@
 	},
 	"id": "thelazycat2011.swapx",
 	"name": "SwapX",
-	"version": "v1.1.0",
+	"version": "v1.2.0",
 	"developer": "thelazycat2011",
 	"description": "Swapping level while nobody notice",
 	"dependencies": {
@@ -28,6 +28,11 @@
 			"name": "Swap keybind",
 			"default": "N",
 			"migrate-from": "thelazycat2011.swapx/swap-toggle"
+		},
+		"level-folder": {
+			"type": "folder",
+			"name": "LevelDB",
+			"default": "{gd_dir}/leveldb"
 		}
 	}
 }
