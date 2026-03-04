@@ -1,3 +1,6 @@
+# 1.2.1
+- Fixed an issue where the swapped level may not reflect whats selected when theres multiple level in the same directory (god damn it im stupid)
+
 # 1.2.0
 - Fixed an issue with Eclipse crashing when SwapX is active w/o any level selected
 - Level's directory can now be changed through the settings menu

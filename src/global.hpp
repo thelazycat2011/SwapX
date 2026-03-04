@@ -17,6 +17,7 @@ struct Globals {
 
     void lvllistRefresh() {
         lvllist = {"No Selection"};
+        internalLvlList = {""};
         std::filesystem::path path = geode::Mod::get()->getSettingValue<std::filesystem::path>("level-folder");
         try {
             if (!std::filesystem::exists(path)) {
