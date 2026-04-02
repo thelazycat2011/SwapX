@@ -10,6 +10,14 @@ void setup() {
     auto& style = ImGui::GetStyle();
     style.WindowTitleAlign = ImVec2(0.5f, 0.5f);
     style.WindowBorderSize = 0;
+    float globalRound = 16.0f; // I am heck sure this is too much
+    style.WindowRounding    = globalRound;
+    style.ChildRounding     = globalRound;
+    style.FrameRounding     = globalRound;
+    style.PopupRounding     = globalRound;
+    style.ScrollbarRounding = globalRound;
+    style.GrabRounding      = globalRound;
+    style.TabRounding       = globalRound;
 
     auto colors = style.Colors;
     colors[ImGuiCol_FrameBg] = ImVec4(0.31f, 0.31f, 0.31f, 0.54f);

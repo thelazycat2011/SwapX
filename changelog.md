@@ -1,3 +1,8 @@
+# 1.2.2
+- Rounded UI!
+- Rebuilded the mod to comply with GeodeSDK mod guideline (no local build)
+- Updated to GeodeSDK 5.3.0
+
 # 1.2.1
 - Fixed an issue where the swapped level may not reflect whats selected when theres multiple level in the same directory (god damn it im stupid)
 

@@ -1,11 +1,11 @@
 {
-	"geode": "5.0.1",
+	"geode": "5.3.0",
 	"gd": {
 		"win": "2.2081"
 	},
 	"id": "thelazycat2011.swapx",
 	"name": "SwapX",
-	"version": "v1.2.1",
+	"version": "v1.2.2",
 	"developer": "thelazycat2011",
 	"description": "Swapping level while nobody notice",
 	"dependencies": {
