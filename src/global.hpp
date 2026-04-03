@@ -21,6 +21,11 @@ struct Globals {
         std::filesystem::path path = geode::Mod::get()->getSettingValue<std::filesystem::path>("level-folder");
 
         auto directory = geode::utils::file::readDirectory(path, false);
+        if (!directory.ok()) {
+            auto createDirectory = geode::utils::file::createDirectory(path);
+            if (!createDirectory.err()) directory = geode::utils::file::readDirectory(path, false);
+            else geode::log::error("Error creating directory : {}", createDirectory.err());
+        }
         if (directory.ok()) {
             for (auto file : directory.unwrap()) {
                 if (geode::utils::string::pathToString(file.extension()) == ".gmd") {
@@ -29,7 +34,7 @@ struct Globals {
                 }
             }
         }
-        else geode::log::error("Error reading file : {}", directory.unwrap());
+        else geode::log::error("Error reading file : {}", directory.err());
     }
 
     Globals(const Globals&) = delete;

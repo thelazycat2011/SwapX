@@ -1,3 +1,6 @@
+# 1.3.1
+HOTFIX : Fix an issue where the game literally crash if the folder is not present
+
 # 1.3.0
 Focused on fixing issue violating GeodeSDK mod guidelines:
 - Using GeodeSDK's filesystem handler instead of C++'s filesystem library
