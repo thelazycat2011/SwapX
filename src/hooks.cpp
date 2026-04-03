@@ -5,16 +5,6 @@
 #include "global.hpp"
 using namespace geode::prelude;
 
-void sync_createQuickPopup(const char* title, const char* msg, const char* btn1, const char* btn2, std::function<void(bool)> onDone) {
-    geode::createQuickPopup(
-        title, msg,
-        btn1, btn2,
-        [onDone](auto, bool confirmed) {
-            onDone(confirmed);
-        }
-    );
-}
-
 class $modify(PlayLayer) {
     bool init (GJGameLevel* level, bool useReplay, bool dontCreateObjects) {
         Globals& g = Globals::instance();
