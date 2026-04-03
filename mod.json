@@ -1,11 +1,12 @@
 {
 	"geode": "5.3.0",
 	"gd": {
-		"win": "2.2081"
+		"win": "2.2081",
+		"mac": "2.2081"
 	},
 	"id": "thelazycat2011.swapx",
 	"name": "SwapX",
-	"version": "v1.2.2",
+	"version": "v1.3.0",
 	"developer": "thelazycat2011",
 	"description": "Swapping level while nobody notice",
 	"dependencies": {
@@ -33,6 +34,16 @@
 			"type": "folder",
 			"name": "LevelDB",
 			"default": "{gd_dir}/leveldb"
+		},
+		"rounding": {
+			"type": "float",
+			"name": "Menu rounding",
+			"description": "Change how rounded is the menu UI component",
+			"default": 0,
+			"min": 0.0,
+			"max": 16.0,
+			"requires-restart": true
 		}
-	}
+	},
+	"tags": ["gameplay", "offline", "cheat"]
 }

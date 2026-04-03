@@ -1,3 +1,12 @@
+# 1.3.0
+Focused on fixing issue violating GeodeSDK mod guidelines:
+- Using GeodeSDK's filesystem handler instead of C++'s filesystem library
+- Adding tags to the mod  
+Other bugfix/features:
+- Manual refreshing over refreshing every frame ImGUI menu is active
+- Rounding customization
+- MacOS support
+
 # 1.2.2
 - Rounded UI!
 - Rebuilded the mod to comply with GeodeSDK mod guideline (no local build)

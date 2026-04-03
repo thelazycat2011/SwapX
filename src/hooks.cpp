@@ -5,12 +5,23 @@
 #include "global.hpp"
 using namespace geode::prelude;
 
+void sync_createQuickPopup(const char* title, const char* msg, const char* btn1, const char* btn2, std::function<void(bool)> onDone) {
+    geode::createQuickPopup(
+        title, msg,
+        btn1, btn2,
+        [onDone](auto, bool confirmed) {
+            onDone(confirmed);
+        }
+    );
+}
+
 class $modify(PlayLayer) {
     bool init (GJGameLevel* level, bool useReplay, bool dontCreateObjects) {
         Globals& g = Globals::instance();
         std::string mockedlevel;
         auto lvl_string = level->m_levelString;
         GJLevelType orig_type = level->m_levelType;
+
         if (g.swap && (!g.swapID || atoi(g.id) == level->m_levelID)) {
             if (g.lvll_ptr != 0) {
                 auto levelobj = gmd::importGmdAsLevel(g.internalLvlList[g.lvll_ptr].c_str());

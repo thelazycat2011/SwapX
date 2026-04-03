@@ -10,7 +10,7 @@ struct Globals {
     bool swap = false;
     bool swapID = false;
     void swap_toggle() {swap = !swap;}
-    char id[10];
+    char id[16];
     int lvll_ptr = 0;
     std::vector<std::string> lvllist = {"No Selection"};
     std::vector<std::string> internalLvlList = {""};
@@ -19,20 +19,17 @@ struct Globals {
         lvllist = {"No Selection"};
         internalLvlList = {""};
         std::filesystem::path path = geode::Mod::get()->getSettingValue<std::filesystem::path>("level-folder");
-        try {
-            if (!std::filesystem::exists(path)) {
-                std::filesystem::create_directory(path);
-            }
 
-            for (const auto& entry : std::filesystem::directory_iterator(path)) {
-                if (entry.path().extension().string() == ".gmd") {
-                    internalLvlList.push_back(entry.path().string());
-                    lvllist.push_back(entry.path().filename().string());
+        auto directory = geode::utils::file::readDirectory(path, false);
+        if (directory.ok()) {
+            for (auto file : directory.unwrap()) {
+                if (geode::utils::string::pathToString(file.extension()) == ".gmd") {
+                    internalLvlList.push_back(geode::utils::string::pathToString(file));
+                    lvllist.push_back(geode::utils::string::pathToString(file.filename().stem()));
                 }
             }
-        } catch (const std::filesystem::filesystem_error& e) {
-            std::cerr << "Error: " << e.what() << std::endl;
         }
+        else geode::log::error("Error reading file : {}", directory.unwrap());
     }
 
     Globals(const Globals&) = delete;
